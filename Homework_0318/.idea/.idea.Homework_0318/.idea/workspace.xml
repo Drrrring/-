@@ -8,15 +8,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="336ad7b3-c776-4319-bb70-99dbca572940" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Homework_0318/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Homework_0318/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Homework_0318/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Homework_0318/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderManagementSystem/Client.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderManagementSystem/Goods.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderManagementSystem/Order.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderManagementSystem/OrderDetail.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderManagementSystem/OrderService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Homework_0318/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Homework_0318/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework_0318.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Homework_0318.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderManagementSystem/Client.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OrderManagementSystem/Client.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderManagementSystem/Goods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OrderManagementSystem/Goods.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderManagementSystem/Order.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OrderManagementSystem/Order.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderManagementSystem/OrderDetail.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OrderManagementSystem/OrderDetail.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderManagementSystem/OrderService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OrderManagementSystem/OrderService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +32,9 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/OrderManagementSystem/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bc3d7024e97f4f818de53bc3c23872b48f5790/b8/9fdf208a/List`1.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e54fec4597f74a4b865d31f47b54f4fa11188/2b/e8e480ee/Assert.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bc3d7024e97f4f818de53bc3c23872b48f5790/21/2249caf6/IComparer`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/dc2e1711ae48c25377a35219da8e74d9e39668dec55cec8cbd485a2b626893de/List.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -59,7 +60,7 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected=".NET Project.OrderManagementSystem">
     <configuration name="OrderManagementSystem" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -89,12 +90,70 @@
       <updated>1647561593069</updated>
       <workItem from="1647561600530" duration="9006000" />
       <workItem from="1647686825440" duration="6736000" />
-      <workItem from="1647859035675" duration="9558000" />
+      <workItem from="1647859035675" duration="9652000" />
+      <workItem from="1647942615888" duration="539000" />
+      <workItem from="1648126872585" duration="79000" />
+      <workItem from="1648127221388" duration="182000" />
+      <workItem from="1648169881688" duration="5023000" />
+      <workItem from="1648175006365" duration="878000" />
+      <workItem from="1648206063061" duration="10772000" />
     </task>
+    <task id="LOCAL-00001" summary="Homework week5">
+      <created>1647873644920</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1647873644920</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnitTestsCoverage.Settings">
+    <option name="coveragePercentColumnWidth" value="150" />
+    <option name="sortOrder" value="DESCENDING" />
+    <option name="sortedColumn" value="1" />
+    <option name="symbolColumnWidth" value="178" />
+    <coverage-tree-state>
+      <expand>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 32% 279/410" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 32% 279/410" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="TestProject1 68% 24/75" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 32% 279/410" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="TestProject1 68% 24/75" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="TestProject1 68% 24/75" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 32% 279/410" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="TestProject1 68% 24/75" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="TestProject1 68% 24/75" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="UnitTest1 68% 24/75" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 32% 279/410" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="OrderManagementSystem 24% 255/335" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 32% 279/410" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="OrderManagementSystem 24% 255/335" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="OrderManagementSystem 24% 255/335" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+      </expand>
+      <select />
+    </coverage-tree-state>
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
@@ -112,5 +171,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Homework week5" />
+    <option name="LAST_COMMIT_MESSAGE" value="Homework week5" />
   </component>
 </project>

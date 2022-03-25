@@ -1,10 +1,15 @@
-﻿namespace OrderManagementSystem
+﻿using System;
+
+namespace OrderManagementSystem
 {
+    [Serializable]
     public class Goods
     {
         public string GoodsName { get; set; }
         public double GoodsPrice { get; set; }
 
+        public Goods() {}
+        
         public Goods(string goodsName, double goodsPrice)
         {
             GoodsName = goodsName;

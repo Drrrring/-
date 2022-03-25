@@ -2,24 +2,27 @@
 
 namespace OrderManagementSystem
 {
+    [Serializable]
     public class OrderDetail
     {
         public Goods Goods { get; set; }
         public int Count { get; set; }
-        public double discount;
+        public double Discount;
 
+        public OrderDetail() {}
+        
         public OrderDetail(Goods goods, int count, double discount = 1)
         {
             this.Goods = goods ?? throw new ArgumentNullException(nameof(goods));
             this.Count = count;
-            this.discount = discount;
+            this.Discount = discount;
         }
 
         public OrderDetail(string name, double price, int count, double discount = 1)
         {
             Goods = new Goods(name, price);
             this.Count = count;
-            this.discount = discount;
+            this.Discount = discount;
         }
 
         public override bool Equals(object? obj)
@@ -39,7 +42,7 @@ namespace OrderManagementSystem
 
         public override string ToString()
         {
-            return Goods.ToString() + $"  count: {Count}  discount: {discount}";
+            return Goods.ToString() + $"  count: {Count}  discount: {Discount}";
         }
     }
 }

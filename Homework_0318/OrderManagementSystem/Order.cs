@@ -5,26 +5,31 @@ using System.Linq;
 
 namespace OrderManagementSystem
 {
-    public class Order:IComparable, IComparer<Order>, IEnumerable
+    [Serializable]
+    public class Order:IComparable, IComparer<Order>
     {
-        private static int num = 0;
+        private static int Num = 0;
         public int Id { get; }
         public Client Client{ get; set; }
         public double Price { get; } = 0;
-        public List<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
+        public List<OrderDetail> OrderDetails { get; } = new List<OrderDetail>();
 
-        public Order(Client client, params OrderDetail[] details)
+        public Order() {}
+        
+        public Order(Client client, int id, params OrderDetail[] details)
         {
-            Id = ++num;
+            Id = id;
             Client = client ?? throw new ArgumentNullException(nameof(client));
             foreach (var detail in details)
             {
                 OrderDetails.Add(detail);
-                this.Price += detail.Count * detail.Goods.GoodsPrice * detail.discount;
+                this.Price += detail.Count * detail.Goods.GoodsPrice * detail.Discount;
             }
-            
         }
 
+        public Order(Client client, params OrderDetail[] details):this(client, ++Num, details)
+        { }
+        
         public bool HasGoods(string goodsName)
         {
             return OrderDetails.Any(orderDetail => orderDetail.Goods.GoodsName.Contains(goodsName));
@@ -54,12 +59,6 @@ namespace OrderManagementSystem
             return info;
         }
 
-        public IEnumerator GetEnumerator()
-        {
-            return OrderDetails.GetEnumerator();
-        }
-
-
         public int CompareTo(object? obj)
         {
             Order temp = obj as Order;
@@ -72,5 +71,6 @@ namespace OrderManagementSystem
         {
             return x.Id - y.Id;
         }
+        
     }
 }

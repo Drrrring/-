@@ -1,12 +1,15 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Xml.Serialization;
 
 namespace OrderManagementSystem
 {
     public class OrderService
     {
-        public static List<Order> orders { get; } = new List<Order>();
+        private static List<Order> orders = new List<Order>();
 
         public static void AddOrder(Order order)
         {
@@ -30,9 +33,11 @@ namespace OrderManagementSystem
             Order order = FindOrder(id);
             if (order == null)
                 throw new Exception("Cannot find this order");
+            if (n >= order.OrderDetails.Count)
+                throw new Exception("Detail not found");
             order.OrderDetails[n].Goods = goods;
             order.OrderDetails[n].Count = count;
-            order.OrderDetails[n].discount = discount;
+            order.OrderDetails[n].Discount = discount;
         }
 
         public static void DeleteOrder(int id)
@@ -45,12 +50,17 @@ namespace OrderManagementSystem
             }
         }
 
+        public static void DeleteAll()
+        {
+            orders.Clear();
+        }
+
         public static Order FindOrder(int id)
         {
             return orders.Find(o => o.Id == id);
         }
 
-        public static List<Order> FindOrder(Func<Order, bool> condition)
+        public static List<Order> FindOrder(Func<Order, bool> condition) 
         {
             return orders.Where(condition)
                 .OrderBy(order => order.Price)
@@ -80,6 +90,24 @@ namespace OrderManagementSystem
         public static void Sort(IComparer<Order> comparer)
         {
             orders.Sort(comparer);
+        }
+
+        public static void Export()
+        {
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Order>));
+            using (FileStream fs = new FileStream("orders.xml",FileMode.Create))
+            {
+                xmlSerializer.Serialize(fs, orders);
+            }
+        }
+
+        public static List<Order> Import()
+        {
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Order>));
+            using (FileStream fs = new FileStream("orders.xml",FileMode.Open))
+            {
+                return (List<Order>)xmlSerializer.Deserialize(fs);
+            }
         }
     }
 }
