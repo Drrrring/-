@@ -14,7 +14,8 @@ namespace OrderManagementSystem
         public double Price { get; } = 0;
         public List<OrderDetail> OrderDetails { get; } = new List<OrderDetail>();
 
-        public Order() {}
+        public Order()
+        { }
         
         public Order(Client client, int id, params OrderDetail[] details)
         {

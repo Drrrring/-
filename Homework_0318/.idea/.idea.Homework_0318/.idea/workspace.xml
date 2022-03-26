@@ -9,12 +9,8 @@
   <component name="ChangeListManager">
     <list default="true" id="336ad7b3-c776-4319-bb70-99dbca572940" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Homework_0318/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Homework_0318/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework_0318.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Homework_0318.sln" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OrderManagementSystem/Client.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OrderManagementSystem/Client.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrderManagementSystem/Goods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OrderManagementSystem/Goods.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OrderManagementSystem/Order.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OrderManagementSystem/Order.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrderManagementSystem/OrderDetail.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OrderManagementSystem/OrderDetail.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrderManagementSystem/OrderService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OrderManagementSystem/OrderService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +92,8 @@
       <workItem from="1648127221388" duration="182000" />
       <workItem from="1648169881688" duration="5023000" />
       <workItem from="1648175006365" duration="878000" />
-      <workItem from="1648206063061" duration="10772000" />
+      <workItem from="1648206063061" duration="10962000" />
+      <workItem from="1648279532229" duration="1166000" />
     </task>
     <task id="LOCAL-00001" summary="Homework week5">
       <created>1647873644920</created>
@@ -105,7 +102,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647873644920</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Homework week6 (Serialization and unit test)">
+      <created>1648217729574</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1648217729574</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,6 +176,7 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Homework week5" />
-    <option name="LAST_COMMIT_MESSAGE" value="Homework week5" />
+    <MESSAGE value="Homework week6 (Serialization and unit test)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Homework week6 (Serialization and unit test)" />
   </component>
 </project>

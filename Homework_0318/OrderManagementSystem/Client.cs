@@ -5,8 +5,8 @@ namespace OrderManagementSystem
     [Serializable]
     public class Client
     {
-        public string Name { get; }
-        public string ClientId { get; }
+        public string Name { get; set;}
+        public string ClientId { get; set;}
 
         public Client(){}
         
