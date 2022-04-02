@@ -7,11 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="336ad7b3-c776-4319-bb70-99dbca572940" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Homework_0318/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Homework_0318/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrderManagementSystem/Client.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OrderManagementSystem/Client.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrderManagementSystem/Order.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OrderManagementSystem/Order.cs" afterDir="false" />
-    </list>
+    <list default="true" id="336ad7b3-c776-4319-bb70-99dbca572940" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,6 +25,7 @@
     <setting file="file://$PROJECT_DIR$/OrderManagementSystem/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bc3d7024e97f4f818de53bc3c23872b48f5790/b8/9fdf208a/List`1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e54fec4597f74a4b865d31f47b54f4fa11188/2b/e8e480ee/Assert.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/y6655/source/repos/Software-Construction-Fundamentals/Homework_0318/OrderManagementSystem/Client.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bc3d7024e97f4f818de53bc3c23872b48f5790/21/2249caf6/IComparer`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/dc2e1711ae48c25377a35219da8e74d9e39668dec55cec8cbd485a2b626893de/List.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -93,7 +90,7 @@
       <workItem from="1648169881688" duration="5023000" />
       <workItem from="1648175006365" duration="878000" />
       <workItem from="1648206063061" duration="10962000" />
-      <workItem from="1648279532229" duration="1166000" />
+      <workItem from="1648279532229" duration="1382000" />
     </task>
     <task id="LOCAL-00001" summary="Homework week5">
       <created>1647873644920</created>
@@ -109,7 +106,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648217729574</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Homework week6">
+      <created>1648280779157</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1648280779157</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,6 +181,7 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Homework week5" />
     <MESSAGE value="Homework week6 (Serialization and unit test)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Homework week6 (Serialization and unit test)" />
+    <MESSAGE value="Homework week6" />
+    <option name="LAST_COMMIT_MESSAGE" value="Homework week6" />
   </component>
 </project>
