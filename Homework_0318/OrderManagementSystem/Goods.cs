@@ -5,7 +5,7 @@ namespace OrderManagementSystem
     [Serializable]
     public class Goods
     {
-        public string GoodsName { get; set; }
+        public string GoodsName { get; set; } = "";
         public double GoodsPrice { get; set; }
 
         public Goods() {}
@@ -16,7 +16,7 @@ namespace OrderManagementSystem
             GoodsPrice = goodsPrice;
         }
 
-        public override bool Equals(object? obj)
+        public override bool Equals(object obj)
         {
             return base.Equals(obj);
         }

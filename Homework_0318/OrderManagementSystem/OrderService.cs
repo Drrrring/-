@@ -9,7 +9,7 @@ namespace OrderManagementSystem
 {
     public class OrderService
     {
-        private static List<Order> orders = new List<Order>();
+        public static List<Order> orders { get; } = new List<Order>();
 
         public static void AddOrder(Order order)
         {
@@ -92,19 +92,19 @@ namespace OrderManagementSystem
             orders.Sort(comparer);
         }
 
-        public static void Export()
+        public static void Export(string filePath = "orders.xml")
         {
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Order>));
-            using (FileStream fs = new FileStream("orders.xml",FileMode.Create))
+            using (FileStream fs = new FileStream(filePath, FileMode.Create))
             {
                 xmlSerializer.Serialize(fs, orders);
             }
         }
 
-        public static List<Order> Import()
+        public static List<Order> Import(string filePath = "orders.xml")
         {
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Order>));
-            using (FileStream fs = new FileStream("orders.xml",FileMode.Open))
+            using (FileStream fs = new FileStream(filePath, FileMode.Open))
             {
                 return (List<Order>)xmlSerializer.Deserialize(fs);
             }

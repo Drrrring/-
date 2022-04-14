@@ -5,9 +5,9 @@ namespace OrderManagementSystem
     [Serializable]
     public class OrderDetail
     {
-        public Goods Goods { get; set; }
+        public Goods Goods { get; set; } = new Goods();
         public int Count { get; set; }
-        public double Discount;
+        public double Discount { get; set; } = 1;
 
         public OrderDetail() {}
         
@@ -25,7 +25,7 @@ namespace OrderManagementSystem
             this.Discount = discount;
         }
 
-        public override bool Equals(object? obj)
+        public override bool Equals(object obj)
         {
             OrderDetail temp = obj as OrderDetail;
             if (temp == null)

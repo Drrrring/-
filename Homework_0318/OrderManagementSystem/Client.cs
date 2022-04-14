@@ -5,8 +5,8 @@ namespace OrderManagementSystem
     [Serializable]
     public class Client
     {
-        public string Name { get; set;}
-        public string ClientId { get; set;}
+        public string Name { get; set; } = "";
+        public string ClientId { get; set; } = "";
 
         public Client(){}
         
@@ -16,7 +16,7 @@ namespace OrderManagementSystem
             ClientId = clientId;
         }
 
-        public override bool Equals(object? obj)
+        public override bool Equals(object obj)
         {
             Client temp = obj as Client;
             return temp != null && this.ClientId.Equals(temp.ClientId);
@@ -25,6 +25,11 @@ namespace OrderManagementSystem
         public override int GetHashCode()
         {
             return ClientId.GetHashCode() * 2;
+        }
+
+        public override string ToString()
+        {
+            return "name: " + Name + " ID: " + ClientId;
         }
     }
 }
