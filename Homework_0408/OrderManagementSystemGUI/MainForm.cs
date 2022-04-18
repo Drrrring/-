@@ -58,6 +58,7 @@ namespace OrderManagementSystemGUI
             {
                 orderBindingSource.DataSource = OrderService.FindOrder(Int32.Parse(txtQueryInput.Text));
             }
+            orderBindingSource.ResetBindings(false);
         }
 
         private void btnAddOrder_Click(object sender, EventArgs e)
