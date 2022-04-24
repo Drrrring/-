@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -12,9 +13,11 @@ using System.Threading.Tasks;
 namespace SimpleCrawler
 {
     public delegate void OutputHandler(object sender, OutputEventArgs e);
-    public class OutputEventArgs: EventArgs
+
+    public class OutputEventArgs : EventArgs
     {
         public string output { get; set; } = "";
+
         public OutputEventArgs(string output)
         {
             this.output = output;
@@ -24,14 +27,15 @@ namespace SimpleCrawler
     public class SimpleCrawler
     {
         private Hashtable urls = new Hashtable();
-        private int count = 0;
+        private static ConcurrentQueue<string> urlQueue = new();
+        private Semaphore mutex = new Semaphore(1, 1);
+        private static int count = 0;
         public string startUrl { set; get; }
-        private bool onlySpecified = false;
-        //public string output { get; set; } = "";
+        public bool onlySpecified { get; set; } = false;
 
         public event OutputHandler OnOutput;
 
-        public SimpleCrawler() 
+        public SimpleCrawler()
         {
             startUrl = "http://www.cnblogs.com/dstang2000/";
         }
@@ -46,45 +50,56 @@ namespace SimpleCrawler
         static void Main(string[] args)
         {
             SimpleCrawler myCrawler = new SimpleCrawler();
-            //myCrawler.startUrl = "http://www.cnblogs.com/dstang2000/";
-            //if (args.Length >= 1) myCrawler.startUrl = args[0];
-            myCrawler.urls.Add(myCrawler.startUrl, false); //加入初始页面
-            new Thread(myCrawler.Crawl).Start();
+            //myCrawler.urls.Add(myCrawler.startUrl, false); //加入初始页面
+            //new Thread(myCrawler.Crawl).Start();
+
+            myCrawler.StartCrawl();
         }
 
         public void StartCrawl()
         {
             if (this.startUrl == "")
                 throw new Exception("起始url错误");
-            this.urls.Add(this.startUrl, false); //加入初始页面
-            new Thread(this.Crawl).Start();
+            // this.urls.Add(this.startUrl, false); //加入初始页面
+            urlQueue.Enqueue(startUrl);
+
+            //new Thread(this.Crawl).Start();
+            Task[] tasks = {Task.Run(() => Crawl()), Task.Run(() => Crawl()), Task.Run(() => Crawl())};
         }
 
         private void Crawl()
         {
             //Console.WriteLine("开始爬行了.... ");
             OnOutput(this, new OutputEventArgs("开始爬行了.... \n"));
-            while (true)
+
+            while (urlQueue.Count != 0)
             {
-                string current = null;
-                foreach (string url in urls.Keys)
-                {
-                    if ((bool) urls[url]) continue;
-                    current = url;
-                }
+                //string current = null;
+                //foreach (string url in urls.Keys)
+                //{
+                //    if ((bool) urls[url]) continue;
+                //    current = url;
+                //}
 
-                if (current == null || count > 10) break;
-                //Console.WriteLine("爬行" + current + "页面!");
-                OnOutput(this, new OutputEventArgs("爬行" + current + "页面!\n"));
-                string html = DownLoad(current); // 下载
-                urls[current] = true;
+                string url = "";
+                urlQueue.TryDequeue(out url);
+                OnOutput(this, new OutputEventArgs("爬行" + url + "页面!\n"));
+                string html = DownLoad(url); // 下载
+                Parse(html);
                 count++;
-                Parse(html); //解析,并加入新的链接
+
+
+                //if (current == null || count > 10) break;
+                //Console.WriteLine("爬行" + current + "页面!");
+                //OnOutput(this, new OutputEventArgs("爬行" + current + "页面!\n"));
+                //string html = DownLoad(current); // 下载
+                //urls[current] = true;
+                //count++;
+                //Parse(html); //解析,并加入新的链接
                 //Console.WriteLine("爬行结束");
-                OnOutput(this, new OutputEventArgs("爬行结束\n"));
-
-
             }
+
+            OnOutput(this, new OutputEventArgs("爬行结束\n"));
         }
 
         public string DownLoad(string url)
@@ -107,6 +122,8 @@ namespace SimpleCrawler
 
         private void Parse(string html)
         {
+            List<string> finalUrls = new List<string>();
+
             // 完整路径处理
             // 是否只在本站爬取
             string strRef = "";
@@ -114,11 +131,11 @@ namespace SimpleCrawler
             {
                 strRef = @"(href|HREF)[]*=[]*[""']" + startUrl + @"[^""'#>]+[""']";
             }
-            else 
+            else
                 strRef = @"(href|HREF)[]*=[]*[""'][^""'#>]+[""']";
+
             MatchCollection absoluteMatches = new Regex(strRef).Matches(html);
 
-            
 
             foreach (Match match in absoluteMatches)
             {
@@ -130,22 +147,23 @@ namespace SimpleCrawler
                 if (!strRef.EndsWith("html") && !strRef.EndsWith("aspx") && !strRef.EndsWith("jsp"))
                     continue;
                 if (strRef.Length == 0) continue;
-                if (urls[strRef] == null) urls[strRef] = false;
+                // if (urls[strRef] == null) urls[strRef] = false;
+                urlQueue.Enqueue(strRef);
+    
             }
 
 
             // 相对路径处理
-            List<string> relativeToAbsoluteRrls = new List<string>();
             Uri baseUri = new Uri(startUrl);
 
             strRef = @"(href|HREF)[]*=[]*[""']./[^""'#>]+[""']";
             MatchCollection relativeMatches1 = new Regex(strRef).Matches(html);
-            foreach(Match match in relativeMatches1)
+            foreach (Match match in relativeMatches1)
             {
                 strRef = match.Value.Substring(match.Value.IndexOf('=') + 1)
                     .Trim('"', '\"', '#', '>');
                 Uri absoluteUri = new Uri(baseUri, strRef);
-                relativeToAbsoluteRrls.Add(absoluteUri.ToString());
+                finalUrls.Add(absoluteUri.AbsoluteUri);
             }
 
             strRef = @"(href|HREF)[]*=[]*[""']../[^""'#>]+[""']";
@@ -155,7 +173,7 @@ namespace SimpleCrawler
                 strRef = match.Value.Substring(match.Value.IndexOf('=') + 1)
                     .Trim('"', '\"', '#', '>');
                 Uri absoluteUri = new Uri(baseUri, strRef);
-                relativeToAbsoluteRrls.Add(absoluteUri.ToString());
+                finalUrls.Add(absoluteUri.AbsoluteUri);
             }
 
             strRef = @"(href|HREF)[]*=[]*[""']/[^""'#>]+[""']";
@@ -165,15 +183,16 @@ namespace SimpleCrawler
                 strRef = match.Value.Substring(match.Value.IndexOf('=') + 1)
                     .Trim('"', '\"', '#', '>');
                 Uri absoluteUri = new Uri(baseUri, strRef);
-                relativeToAbsoluteRrls.Add(absoluteUri.ToString());
+                finalUrls.Add(absoluteUri.AbsoluteUri);
             }
 
-            foreach(string url in relativeToAbsoluteRrls)
+            foreach (string url in finalUrls)
             {
                 if (!url.EndsWith("html") && !url.EndsWith("aspx") && !url.EndsWith("jsp"))
                     continue;
                 if (url.Length == 0) continue;
-                if (urls[url] == null) urls[url] = false;
+                //if (urls[url] == null) urls[url] = false;
+                urlQueue.Enqueue(url);
             }
         }
     }
